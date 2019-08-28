@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent.values[0] < sensor.getMaximumRange()){
+                    System.out.println("Valor sensorEvent -> "+sensorEvent.values[0]);
+                    System.out.println("Rango del sensor -> "+sensor.getMaximumRange());
                     textoActivado.setVisibility(View.VISIBLE);
                     textoDesactivado.setVisibility(View.INVISIBLE);
                     getWindow().getDecorView().setBackgroundColor(Color.rgb(190,204,161));
