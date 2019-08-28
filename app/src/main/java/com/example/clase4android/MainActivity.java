@@ -1,5 +1,6 @@
 package com.example.clase4android;
 
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,9 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 if (sensorEvent.values[0] < sensor.getMaximumRange()){
                     textoActivado.setVisibility(View.VISIBLE);
                     textoDesactivado.setVisibility(View.INVISIBLE);
+                    getWindow().getDecorView().setBackgroundColor(Color.rgb(190,204,161));
+                    Toast.makeText(getApplicationContext(),"Sensor activado",Toast.LENGTH_LONG).show();
                 }else{
                     textoActivado.setVisibility(View.INVISIBLE);
                     textoDesactivado.setVisibility(View.VISIBLE);
+                    getWindow().getDecorView().setBackgroundColor(Color.rgb(102,102,102));
+                    Toast.makeText(getApplicationContext(),"Sensor desactivado",Toast.LENGTH_LONG).show();
                 }
 
             }
